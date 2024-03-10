@@ -1,0 +1,20 @@
+{
+  "name": "my_query",
+  "version": "0.1.0",
+  "description": "my_query",
+  "main": "index.ts",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [
+    "entity",
+    "query",
+    "sql"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3",
+    "vite": "latest",
+    "vitest": "latest"
+  }
+}

@@ -1,0 +1,13 @@
+
+# max_width = 160
+single_line_if_else = 100
+single_line_if_else_max_width = 90
+# single_line_let_else_max_width = 80
+# struct_variant_width = 100
+where_single_line = true
+use_small_heuristics = "max"
+# Control flow
+fn_args_layout = "Compressed"
+overflow_delimited_expr = true
+enum_variant_style = "compressed"
+enum_discrim_align_threshold = 100
