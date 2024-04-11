@@ -14,7 +14,9 @@ function test1(q: Query) {
     .titel.startsWith("aaa")
     .click_count.gt(30))
 ```
-![test1](Doc/img/where3.gif)
+
+<!-- ![test1](Doc/img/where3.gif) -->
+![where3](https://github.com/vst-h/my_query/assets/75962510/59883739-e5e1-483d-abd6-f4680640d3fe)
 
 ### AND OR 的筛选
 `where` 默认 `AND` 为逻辑条件，也可以直接显式使用 `AND$` 或 `OR$` 指定逻辑条件，也可以多层嵌套。
@@ -26,7 +28,9 @@ q.Post.where(e => e.AND$(e
     .click_count.gt(30)
     .click_count.eq(10))))
 ```
-![where_and](Doc/img/where_and2.gif)
+
+<!-- ![where_and](Doc/img/where_and2.gif) -->
+![where_and2](https://github.com/vst-h/my_query/assets/75962510/21790473-7a7b-4c8b-89bc-037a20bf1f55)
 
 ### 子对象（关联表）的过滤
 Post 是主体，它的关联对象有 `author`, `comment`, `tag`。也可以对他们进行筛选。
@@ -90,7 +94,9 @@ q.Post.select(p => p
     .user(u => u.id.name)) // 评论者信息
   .tags(t => t.name)) // 文章的标签 Tag
 ```
-![select1](Doc/img/select1.gif)
+<!-- ![select1](Doc/img/select1.gif) -->
+![select1](https://github.com/vst-h/my_query/assets/75962510/081f33e6-4dac-4209-952c-b678fbce4736)
+
 > 其实我是考虑过有 `Include` 包含子对象查询的，后来发现直接写在 `select` 里面更简单，更优雅 （~~EF 误导我~~）。更早的版本，我甚至也允许进行 `left join`, `inner join` 的查询，后来发现这也过于复杂了，而且这个表关系应该直接交给后端配置，前端写关系查询要么写对，要么写错。还不如让后端一次配置就完成了，不用每个查询都写关联关系。
 
 ## OrderBy 排序
@@ -99,7 +105,8 @@ q.Post.select(p => p
 q.Post.orderBy(p => p
   .create_at.DESC$.update_at.titel)
 ```
-![orderby](Doc/img/orderby1.gif)
+<!-- ![orderby](Doc/img/orderby1.gif) -->
+![orderby1](https://github.com/vst-h/my_query/assets/75962510/c10d3cf9-8c74-481d-9be1-433dddd9fb16)
 
 ## 应用
 项目可以应用在前端，这一连串的查询可以生成一些查询结构，这个结构不是 sql 语句，而是类似一种 AST 的数据结构。这个结构发送给后端，后端把这个结构生成 sql 语句进行查询，然后再返回给前端。
